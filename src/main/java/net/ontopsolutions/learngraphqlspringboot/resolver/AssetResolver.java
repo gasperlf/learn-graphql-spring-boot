@@ -2,33 +2,28 @@ package net.ontopsolutions.learngraphqlspringboot.resolver;
 
 import graphql.kickstart.tools.GraphQLResolver;
 import lombok.extern.slf4j.Slf4j;
+import net.ontopsolutions.learngraphqlspringboot.domain.Asset;
 import net.ontopsolutions.learngraphqlspringboot.domain.BankAccount;
-import net.ontopsolutions.learngraphqlspringboot.domain.Client;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 @Component
 @Slf4j
-public class ClientResolver implements GraphQLResolver<BankAccount> {
+public class AssetResolver implements GraphQLResolver<BankAccount> {
 
     private final ExecutorService executorService = Executors
             .newFixedThreadPool(Runtime.getRuntime().availableProcessors());
 
-    public CompletableFuture<Client> client(BankAccount bankAccount) {
-        log.info("Retrieving client to bank account id {}", bankAccount.getId());
+    public CompletableFuture<List<Asset>> assets(BankAccount bankAccount) {
+        log.info("Retrieving asset to bank account id {}", bankAccount.getId());
         return CompletableFuture.supplyAsync(
                 () -> {
-                    return Client.builder()
-                            .id(bankAccount.getId())
-                            .firstName("Lewis")
-                            .lastName("Florez")
-                            .middleNames(Arrays.asList("Mr.")).build();
+                    return List.of(Asset.builder().id(UUID.randomUUID()).build());
                 }, executorService);
-
-
     }
 }
