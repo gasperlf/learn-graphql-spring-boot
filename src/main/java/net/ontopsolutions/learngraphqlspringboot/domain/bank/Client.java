@@ -1,4 +1,4 @@
-package net.ontopsolutions.learngraphqlspringboot.domain;
+package net.ontopsolutions.learngraphqlspringboot.domain.bank;
 
 import lombok.Builder;
 import lombok.Value;

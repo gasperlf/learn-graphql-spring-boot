@@ -2,12 +2,10 @@ package net.ontopsolutions.learngraphqlspringboot.resolver.bank;
 
 import graphql.kickstart.tools.GraphQLQueryResolver;
 import lombok.extern.slf4j.Slf4j;
-import net.ontopsolutions.learngraphqlspringboot.domain.BankAccount;
-import net.ontopsolutions.learngraphqlspringboot.domain.Client;
-import net.ontopsolutions.learngraphqlspringboot.domain.Currency;
+import net.ontopsolutions.learngraphqlspringboot.domain.bank.BankAccount;
+import net.ontopsolutions.learngraphqlspringboot.domain.bank.Currency;
 import org.springframework.stereotype.Component;
 
-import java.util.Arrays;
 import java.util.UUID;
 
 @Component

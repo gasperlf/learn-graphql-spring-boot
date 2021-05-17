@@ -1,6 +1,9 @@
 spring:
   application:
     name: learn-graphql-spring-boot
+  servlet:
+    multipart:
+      max-file-size: 2MB
 
 server:
   http2:
@@ -8,8 +11,9 @@ server:
 
 graphql:
   servlet:
-    maxQueryDepth: 5
+    maxQueryDepth: 100
     exception-handlers-enabled: true
+    tracingEnabled: false
   playground:
     headers:
       Authorization: Bearer TOKEN
